@@ -8,6 +8,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>お気に入り</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -21,9 +22,13 @@
     			
     	<% } else {%>
     		<% for ( String s : favoriteTheme ) {%>
-    			<%=s%>
+    			<%=s%><br>
     		<% }%>
     	<% }%>
+    	
+    	<form action="topPage.jsp" method="get">
+        	<input type="submit" value="メニューへ戻る">
+        </form>
 
 	</body>
 

@@ -8,6 +8,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>履歴</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -21,9 +22,13 @@
     			
     	<% } else {%>
     		<% for ( String s : savedTheme ) {%>
-    			<%=s%>
+    			<%=s%><br>
     		<% }%>
     	<% }%>
+    	
+    	<form action="topPage.jsp" method="get">
+        	<input type="submit" value="メニューへ戻る">
+        </form>
 
 	</body>
 
