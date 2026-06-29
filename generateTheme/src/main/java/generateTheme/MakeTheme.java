@@ -90,10 +90,18 @@ public class MakeTheme extends HttpServlet {
 
 		
 		
-		if ( g1.equals( "generate" ) ) {		
-		
+		if ( g1.equals( "generate" ) ) {
+			
 			
 			String g2 = request.getParameter("difficulty");
+			
+			if ( g2 == null || g2.isEmpty() ) {
+				String e = "難易度を選択してください！";
+				request.setAttribute( "error", e );
+				RequestDispatcher rd = request.getRequestDispatcher( "/difficultyChoice.jsp" );
+		        rd.forward( request, response );
+		        return;
+			}
 			
 		
 			// お題内容を抽選
@@ -117,7 +125,7 @@ public class MakeTheme extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher( "/result.jsp" );
 	        rd.forward( request, response );
-	        
+	        return;
 	        
 	        
 		} else if ( g1.equals( "favorite" ) ) {
@@ -139,6 +147,7 @@ public class MakeTheme extends HttpServlet {
 			        
 					RequestDispatcher rd = request.getRequestDispatcher( "/message.jsp" );
 					rd.forward( request, response );
+					return;
 					
 				} else {
 					
@@ -147,6 +156,7 @@ public class MakeTheme extends HttpServlet {
 					
 					RequestDispatcher rd = request.getRequestDispatcher( "deleteFavorite.jsp" );
 					rd.forward( request, response );
+					return;
 					
 				}
 				
@@ -157,6 +167,7 @@ public class MakeTheme extends HttpServlet {
         
 				RequestDispatcher rd = request.getRequestDispatcher( "/message.jsp" );
 				rd.forward( request, response );
+				return;
 				
 			}	
 			
@@ -166,6 +177,15 @@ public class MakeTheme extends HttpServlet {
 			
 			String g4 = request.getParameter( "themeText" );
 			String g5 = request.getParameter( "deleteChoice" );
+			
+			if ( g5 == null || g5.isEmpty() ) {
+				String e = "削除・キャンセルするお題を選択してください！";
+				request.setAttribute( "error", e );
+				RequestDispatcher rd = request.getRequestDispatcher( "/deleteFavorite.jsp" );
+		        rd.forward( request, response );
+		        return;
+			}
+			
 			int choice = Integer.parseInt( g5 );
 			
 			
@@ -180,6 +200,7 @@ public class MakeTheme extends HttpServlet {
 				
 				RequestDispatcher rd = request.getRequestDispatcher( "/message.jsp" );
 				rd.forward( request, response );
+				return;
 				
 				
 			} else {
@@ -189,6 +210,7 @@ public class MakeTheme extends HttpServlet {
 				
 				RequestDispatcher rd = request.getRequestDispatcher( "/message.jsp" );
 				rd.forward( request, response );
+				return;
 				
 			}
 			

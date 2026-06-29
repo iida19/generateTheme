@@ -13,22 +13,33 @@
 
 	<body>
 	
-		<%
-			List<String> favoriteTheme = ( List<String> )request.getAttribute( "favoriteTheme" );
-		%>
+		<div class="card f-area">
 		
-		<% if ( favoriteTheme == null || favoriteTheme.isEmpty() ) {%>
-    			まだないよ
+			<%
+				List<String> favoriteTheme = ( List<String> )request.getAttribute( "favoriteTheme" );
+			%>
+		
+			<% if ( favoriteTheme == null || favoriteTheme.isEmpty() ) {%>
+   	 				<div class="title">まだないよ</div>
     			
-    	<% } else {%>
-    		<% for ( String s : favoriteTheme ) {%>
-    			<%=s%><br>
+    		<% } else {%>
+    			<div class="title">お気に入り一覧</div>
+    		
+    			<div class="fl-area">
+    				<% for ( String s : favoriteTheme ) {%>
+    						<div class="f-list">
+    							<%=s%>
+    						</div>	
+    				<% }%>
+    			</div>
+    				
     		<% }%>
-    	<% }%>
     	
-    	<form action="topPage.jsp" method="get">
-        	<input type="submit" value="メニューへ戻る">
-        </form>
+    		<form action="topPage.jsp" method="get">
+        		<input type="submit" value="メニューへ戻る">
+        	</form>
+        
+        </div>
 
 	</body>
 

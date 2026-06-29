@@ -12,7 +12,7 @@
 	
 	<body>
 	
-		<div class="top-area">
+		<div class="card area">
 		
 			<div class="title">今日のお題を作ります！</div>
 			

@@ -15,19 +15,23 @@
 			Integer choice = ( Integer )request.getAttribute( "choice" );
 		%>
 		
-		<% if ( favoChoice.equals( "y" ) ) {%>
-				登録しました！
-		<% } else if ( favoChoice.equals( "n" ) ) {%>
-				承知しました！
-		<% } else if ( favoChoice.equals( "d" ) ) {%>
-				<%=choice + 1%>番を削除して、最新のお題をお気に入りに追加しました！
-		<% } else if ( favoChoice.equals( "c" ) ) {%>
-				お気に入り登録をキャンセルしました！
-		<% } %>				
+		<div class="card ms-area">
 		
-		<form action="topPage.jsp" method="get">
-        	<input type="submit" value="メニューへ戻る">
-        </form>		
+			<% if ( favoChoice.equals( "y" ) ) {%>
+					登録しました！
+			<% } else if ( favoChoice.equals( "n" ) ) {%>
+					承知しました！
+			<% } else if ( favoChoice.equals( "d" ) ) {%>
+					<%=choice + 1%>番を削除して、最新のお題をお気に入りに追加しました！
+			<% } else if ( favoChoice.equals( "c" ) ) {%>
+					お気に入り登録をキャンセルしました！
+			<% } %>				
+		
+			<form action="topPage.jsp" method="get">
+        		<input type="submit" value="メニューへ戻る">
+        	</form>
+        
+        </div>		
 
 	</body>
 

@@ -13,22 +13,33 @@
 
 	<body>
 	
-		<%
-			List<String> savedTheme = ( List<String> )request.getAttribute( "savedTheme" );
-		%>
+		<div class="card h-area">
+			
+			<%
+				List<String> savedTheme = ( List<String> )request.getAttribute( "savedTheme" );
+			%>
 		
-		<% if ( savedTheme == null || savedTheme.isEmpty() ) {%>
-    			まだないよ
+			<% if ( savedTheme == null || savedTheme.isEmpty() ) {%>
+    				<div class="title">まだないよ</div>
     			
-    	<% } else {%>
-    		<% for ( String s : savedTheme ) {%>
-    			<%=s%><br>
+    		<% } else {%>
+    			<div class="title">履歴一覧</div>
+    			
+    			<div class="hl-area">
+    				<% for ( String s : savedTheme ) {%>
+    						<div class="h-list">
+    							<%=s%>
+    						</div>	
+    				<% }%>
+    			</div>
+
     		<% }%>
-    	<% }%>
     	
-    	<form action="topPage.jsp" method="get">
-        	<input type="submit" value="メニューへ戻る">
-        </form>
+    		<form action="topPage.jsp" method="get">
+        		<input type="submit" value="メニューへ戻る">
+        	</form>
+        
+        </div>
 
 	</body>
 

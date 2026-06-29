@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>    
+<%@ page import="java.util.ArrayList" %>
+<%
+	String e = ( String )request.getAttribute( "error" );
+%>    
     
 <!DOCTYPE html>
 <html>
@@ -18,26 +21,40 @@
 			String themeText = ( String )request.getAttribute( "themeText" );
 		%>
 		
-		お気に入りの件数が上限いっぱいです！<br>
-		削除するお題を選んでください！
+		<div class="card fc-area">
 		
-		<form action="MakeTheme" method="post">
+			お気に入りの件数が上限いっぱいです！<br>
+			削除するお題を選んでください！
 		
-			<input type="hidden" name="action" value="deleteFavorite">
-			<input type="hidden" name="themeText" value="<%=themeText %>">
+			<form action="MakeTheme" method="post">
+		
+				<input type="hidden" name="action" value="deleteFavorite">
+				<input type="hidden" name="themeText" value="<%=themeText %>">
 			
-			<% for ( int i = 0; i < favoriteTheme.size(); i ++ ) { %>
-					<input type="radio" name="deleteChoice" value="<%= i %>">
-					<%=favoriteTheme.get( i ) %><br>
-					</button>
-			<% } %>
-			<input type="radio" name="deleteChoice" value="<%=favoriteTheme.size() %>">
-				上のお題は残して、お気に入り登録をキャンセル<br>
-			</button>
+				<div class="fcr-area">
 				
-			<input type="submit" value="削除">
-					
-		</form>
+					<% for ( int i = 0; i < favoriteTheme.size(); i ++ ) { %>
+							<div class="fc-radio">
+							<input type="radio" id="<%=i %>" name="deleteChoice" value="<%= i %>">
+							<label for="<%=i %>"><%=favoriteTheme.get( i ) %></label>
+							</div>
+					<% } %>
+					<div class="fc-radio">
+						<input type="radio" id="<%=favoriteTheme.size() %>" name="deleteChoice" value="<%=favoriteTheme.size() %>" required>
+							<label for="<%=favoriteTheme.size() %>">上のお題は残して、お気に入り登録をキャンセル</label>
+					</div>
+				
+				</div>
+				
+				<input type="submit" value="削除">
+						
+			</form>
+			
+			<% if ( e != null && !e.isEmpty() ) { %>
+					<%=e %>
+			<% } %>
+		
+		</div>
 
 	</body>
 
