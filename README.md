@@ -48,5 +48,12 @@ JavaとServletとJSPで作成したイラストのお題作成アプリです。
 - データベース対応
 
 ## スクリーンショット
-<img width="1901" height="871" alt="image" src="https://github.com/user-attachments/assets/bed3f3ce-21e7-4940-ba1a-4b266a3a3e80" />
 
+### トップ画面
+![トップ画面](screenshots/トップ画面.png)
+
+### お題表示画面
+![お題表示画面](screenshots/お題生成結果画面.png)
+
+### 履歴表示画面
+![お題表示画面](screenshots/履歴一覧画面.png)
