@@ -50,10 +50,10 @@ JavaとServletとJSPで作成したイラストのお題作成アプリです。
 ## スクリーンショット
 
 ### トップ画面
-![トップ画面](screenshots/トップ画面.png)
+![トップ画面](screenshots/toppage.png)
 
 ### お題表示画面
-![お題表示画面](screenshots/お題生成結果画面.png)
+![お題表示画面](screenshots/result.png)
 
 ### 履歴表示画面
-![お題表示画面](screenshots/履歴一覧画面.png)
+![お題表示画面](screenshots/history.png)
